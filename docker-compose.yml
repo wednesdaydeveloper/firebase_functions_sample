@@ -1,0 +1,17 @@
+version: "3"
+services:
+  firebase_functions:
+    volumes:
+      - ".:/app"
+    ports:
+      - "5000:5000"
+      - "9005:9005"
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - "http_proxy"
+        - "https_proxy"
+    env_file: .env
+    tty: true
+#https://qiita.com/pannpers/items/244a7e3c18d8c8422e4f
